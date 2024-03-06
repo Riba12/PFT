@@ -4,9 +4,9 @@ import Botao from './components/Botao';
 import Cartas from './components/Cartas';
 
 function App() {
-  const cartas = ["2", "3", "4", "5", "6", "7", "9", "T", "J", "K", "Q", "A"];
+  const cartas = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "K", "Q", "A"];
   const naipes = ["c", "d", "s", "h"];
-  const [mao, setMao] = useState("");
+  const [mao, setMao] = useState([]);
 
   useEffect(() => {
     chooseHand();
@@ -27,7 +27,7 @@ function App() {
     let hand = [cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2]];
     setMao(hand);
 
-    console.log(carta1, naipe1)
+    console.log(mao)
   }
 
   return (

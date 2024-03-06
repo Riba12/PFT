@@ -1,0 +1,15 @@
+.cartas img{
+    width: 50px;
+    height: 72px;
+}
+.carta1,
+.carta2 {
+  position: absolute;
+  top: 80%; 
+  left: 50%;
+}
+
+.carta2 {
+  left: 52%; 
+  z-index: 1; 
+}
