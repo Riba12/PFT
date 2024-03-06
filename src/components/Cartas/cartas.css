@@ -1,15 +1,15 @@
 .cartas img{
-    width: 50px;
-    height: 72px;
+    width: 150px;
+    height: 172px;
 }
 .carta1,
 .carta2 {
   position: absolute;
-  top: 80%; 
-  left: 50%;
+  top: 60%; 
+  left: 40%;
 }
 
 .carta2 {
-  left: 52%; 
+  left: 44%; 
   z-index: 1; 
 }
