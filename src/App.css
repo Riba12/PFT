@@ -3,4 +3,10 @@
   background-color: darkblue;
   color: white;
   height: 100dvh;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.holecards{
+  margin: 5%;
 }
