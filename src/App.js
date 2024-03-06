@@ -2,22 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [cartas, setCartas] = useState(["2", "3", "4", "5", "6", "7", "9", "T", "J", "K", "Q", "A"]);
+  const [naipes, setNaipes] = useState(["c", "d", "s", "h"]);
+
+  function chooseHand() {
+
+    let naipe1 = Math.floor(Math.random() * 4);
+    let carta1 = Math.floor(Math.random() * 12);
+    let hand = [cartas[carta1],naipes[naipe1]];
+
+    console.log(naipe1, carta1)
+    return hand
+  }
+
+  let mao = chooseHand();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bckg">
+
+      {mao}
     </div>
   );
 }
