@@ -14,71 +14,85 @@ function Cartas(props) {
         return r.keys().map(r);
     }
 
-    useEffect()
+    
+    useEffect(() =>{
+        switch (props.mao[1]) {
+            case 'c':
+                switch (props.mao[3]) {
+                    case 'c':
+                        setHole([clubs[props.mao[0]], clubs[props.mao[2]]]);
+                        break;
+                    case 'd':
+                        setHole([clubs[props.mao[0]], diamonds[props.mao[2]]]);
+                        break;
+                    case 'h':
+                        setHole([clubs[props.mao[0]], hearts[props.mao[2]]]);
+                        break;
+                    case 's':
+                        setHole([clubs[props.mao[0]], spades[props.mao[2]]]);
+                        break;
+                }
+                break;
+            case 'd':
+                switch (props.mao[3]) {
+                    case 'c':
+                        setHole([diamonds[props.mao[0]], clubs[props.mao[2]]]);
+                        break;
+                    case 'd':
+                        setHole([diamonds[props.mao[0]], diamonds[props.mao[2]]]);
+                        break;
+                    case 'h':
+                        setHole([diamonds[props.mao[0]], hearts[props.mao[2]]]);
+                        break;
+                    case 's':
+                        setHole([diamonds[props.mao[0]], spades[props.mao[2]]]);
+                        break;
+                }
+                break;
+            case 'h':
+                switch (props.mao[3]) {
+                    case 'c':
+                        setHole([hearts[props.mao[0]], clubs[props.mao[2]]]);
+                        break;
+                    case 'd':
+                        setHole([hearts[props.mao[0]], diamonds[props.mao[2]]]);
+                        break;
+                    case 'h':
+                        setHole([hearts[props.mao[0]], hearts[props.mao[2]]]);
+                        break;
+                    case 's':
+                        setHole([hearts[props.mao[0]], spades[props.mao[2]]]);
+                        break;
+                }
+                break;
+            case 's':
+                switch (props.mao[3]) {
+                    case 'c':
+                        setHole([spades[props.mao[0]], clubs[props.mao[2]]]);
+                        break;
+                    case 'd':
+                        setHole([spades[props.mao[0]], diamonds[props.mao[2]]]);
+                        break;
+                    case 'h':
+                        setHole([spades[props.mao[0]], hearts[props.mao[2]]]);
+                        break;
+                    case 's':
+                        setHole([spades[props.mao[0]], spades[props.mao[2]]]);
+                        break;
+                }
+                break;
+        }
+    },[props.mao])
 
-    switch (props.mao[1]) {
-        case 'c':
-            switch (props.mao[3]) {
-                case 'c':
-                    setHole(clubs[props.mao[0], clubs[props.mao[2]]]);
-                    break;
-                case 'd':
-                    setHole(clubs[props.mao[0], diamonds[props.mao[2]]]);
-                    break;
-                case 'h':
-                    setHole(clubs[props.mao[0], hearts[props.mao[2]]]);
-                    break;
-                case 's':
-                    setHole(clubs[props.mao[0], spades[props.mao[2]]]);
-                    break;
-            }
-        case 'd':
-            switch (props.mao[3]) {
-                case 'c':
-                    setHole(diamonds[props.mao[0], clubs[props.mao[2]]]);
-                    break;
-                case 'd':
-                    setHole(diamonds[props.mao[0], diamonds[props.mao[2]]]);
-                    break;
-                case 'h':
-                    setHole(diamonds[props.mao[0], hearts[props.mao[2]]]);
-                    break;
-                case 's':
-                    setHole(diamonds[props.mao[0], spades[props.mao[2]]]);
-                    break;
-            }
-        case 'h':
-            switch (props.mao[3]) {
-                case 'c':
-                    setHole(hearts[props.mao[0], clubs[props.mao[2]]]);
-                case 'd':
-                    setHole(hearts[props.mao[0], diamonds[props.mao[2]]]);
-                case 'h':
-                    setHole(hearts[props.mao[0], hearts[props.mao[2]]]);
-                case 's':
-                    setHole(hearts[props.mao[0], spades[props.mao[2]]]);
-            }
-        case 's':
-            switch (props.mao[3]) {
-                case 'c':
-                    setHole(spades[props.mao[0], clubs[props.mao[2]]]);
-                case 'd':
-                    setHole(spades[props.mao[0], diamonds[props.mao[2]]]);
-                case 'h':
-                    setHole(spades[props.mao[0], hearts[props.mao[2]]]);
-                case 's':
-                    setHole(spades[props.mao[0], spades[props.mao[2]]]);
-            }
-    }
+    
     return (
         <div className='cartas'>
             {/* {props.mao} */}
             <div>
-                bla
-                {/* <img src={hole[0]} className='carta1' /> */}
+                <img src={hole[0]} className='carta1' />
             </div>
             <div>
-                {/* <img src={hole[1]} className='carta2' /> */}
+                <img src={hole[1]} className='carta2' />
             </div>
         </div>
     );
