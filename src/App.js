@@ -6,6 +6,7 @@ import Cartas from './components/Cartas';
 function App() {
   const cartas = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
   const naipes = ["c", "d", "s", "h"];
+  const posicoes = ["EP","EP1","MP","LJ","HJ","CO","BT","SB","BB"]
   const [mao, setMao] = useState([]);
   const [testemao,setTestemao] = useState([])
 
