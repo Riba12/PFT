@@ -88,7 +88,6 @@ function Cartas(props) {
     return (
         <div className='cartas'>
             {props.mao}
-            {props.testemao}
             <div>
                 <img src={hole[0]} className='carta1' />
             </div>

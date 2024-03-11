@@ -1,13 +1,18 @@
-.cartas img{
-    width: 150px;
-    height: 172px;
+.cartas{
+  display: flex;
+  justify-content: center;
 }
-.carta1,
+
+.cartas img{
+    width: 100px;
+    height: 110px;
+}
+/* .carta1,
 .carta2 {
   position: absolute;
   top: 60%; 
   left: 40%;
-}
+} */
 
 .carta2 {
   left: 44%; 

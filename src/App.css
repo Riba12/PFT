@@ -1,15 +1,24 @@
+
+body{
+background-color: rgb(26, 22, 22);
+}
 .bckg{
   text-align: center;
   color: white;
   height: 100dvh;
   display: flex;
   flex-direction: column-reverse;
+  background-image: url("./assets/indiv/table/mesaps.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .holecards{
   margin: 5%;
 }
-.mesa img{
-  height: 60px;
-  width: 60px;
-  border-radius: 8px;
+.container_botoes{
+  padding-bottom: 2%;
+}
+.div_stack{
+  padding-bottom: 3%;
 }
