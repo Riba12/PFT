@@ -3,15 +3,16 @@ import { useEffect, useState } from 'react';
 import Botao from './components/Botao';
 import Cartas from './components/Cartas';
 import mesa from './assets/indiv/table/mesaps.png'
+import deckBack from './assets/indiv/deck/back.png'
 
 function App() {
   const cartas = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
   const naipes = ["c", "d", "s", "h"];
-  const posicoes = ["EP","EP1","MP","LJ","HJ","CO","BT","SB"]
+  const posicoes = ["EP", "EP1", "MP", "LJ", "HJ", "CO", "BT", "SB"]
   const [mao, setMao] = useState([]);
-  const [testemao,setTestemao] = useState([]);
-  const [posicaoAtual,setPosicaoAtual] = useState();
-  const [stack,setStack] = useState();
+  const [testemao, setTestemao] = useState([]);
+  const [posicaoAtual, setPosicaoAtual] = useState();
+  const [stack, setStack] = useState();
 
   useEffect(() => {
     chooseHand();
@@ -25,9 +26,9 @@ function App() {
     let carta2 = Math.floor(Math.random() * 13);
     let pos = Math.floor(Math.random() * 8);
     let stack = 0
-    while(stack < 8){
-     stack = Math.floor(Math.random() * 25);
-  }
+    while (stack < 8) {
+      stack = Math.floor(Math.random() * 25);
+    }
     setStack(stack);
     while (carta1 == carta2 && naipe1 == naipe2) {
       carta2 = Math.floor(Math.random() * 12);
@@ -36,8 +37,8 @@ function App() {
 
     let hand = [cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2]];
     setMao(hand);
-    console.log(carta1,carta2)
-    setTestemao([carta1,carta2])
+    console.log(carta1, carta2)
+    setTestemao([carta1, carta2])
     setPosicaoAtual(posicoes[pos])
   }
   // useEffect(() => {
@@ -54,16 +55,43 @@ function App() {
         <Botao nome="All in" chooseHand={chooseHand} />
       </div>
       <div>
-       Posição: {posicaoAtual}
+        Posição: {posicaoAtual}
       </div>
       <div className='div_stack'>
         Stack: {stack} BBs
       </div>
       <div>
         <div className='holecards'>
-        <Cartas mao={mao} testemao={testemao} />
+          <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
         </div>
       </div>
+      <div className='middleCards'>
+        <div>
+          <img src={deckBack} />
+          <img src={deckBack} />
+        </div>
+        <div>
+          <img src={deckBack} />
+          <img src={deckBack} />
+        </div>
+      </div>
+      <div className='topcards'>
+        <div>
+          <img src={deckBack} />
+          <img src={deckBack} />
+        </div>
+        <div>
+          Pot :
+        </div>
+        <div>
+          <img src={deckBack} />
+          <img src={deckBack} />
+        </div>
+      </div>
+        <div className='top'>
+          <img src={deckBack} />
+          <img src={deckBack} />
+        </div>
     </section></>
   );
 }

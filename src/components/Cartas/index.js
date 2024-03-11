@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './cartas.css';
 
 
+
 function Cartas(props) {
 
     const [hole, setHole] = useState([]);
@@ -87,12 +88,17 @@ function Cartas(props) {
     
     return (
         <div className='cartas'>
-            {props.mao}
-            <div>
-                <img src={hole[0]} className='carta1' />
+            <div className='cartasVilao'>
+            <img src={props.deckBack}/>
+            <img src={props.deckBack}/>
             </div>
-            <div>
+            <div className='heroCards'>
+                <img src={hole[0]} className='carta1' />
                 <img src={hole[1]} className='carta2' />
+            </div>
+            <div className='cartasVilao'>
+            <img src={props.deckBack} />
+            <img src={props.deckBack} />
             </div>
         </div>
     );

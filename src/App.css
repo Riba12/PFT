@@ -14,11 +14,32 @@ background-color: rgb(26, 22, 22);
   background-size: contain;
 }
 .holecards{
-  margin: 5%;
+  margin: 4%;
 }
 .container_botoes{
   padding-bottom: 2%;
 }
 .div_stack{
   padding-bottom: 3%;
+}
+.middleCards{
+  display: flex;
+  justify-content: space-between
+}
+.middleCards img{
+  height: 85px;
+  width: 80px;
+}
+.topcards{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 6%;
+}
+.topcards img{
+  height: 85px;
+  width: 80px;
+}
+.top img{
+  height: 85px;
+  width: 80px;
 }

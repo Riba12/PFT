@@ -1,18 +1,19 @@
 .cartas{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .cartas img{
     width: 100px;
     height: 110px;
 }
-/* .carta1,
-.carta2 {
-  position: absolute;
-  top: 60%; 
-  left: 40%;
-} */
+.cartasVilao img{ 
+    width: 85px;
+    height: 85px;
+}
+.herocards img {
+  
+}
 
 .carta2 {
   left: 44%; 
