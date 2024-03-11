@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Botao from './components/Botao';
 import Cartas from './components/Cartas';
+import mesa from './assets/indiv/table/mesaps.png'
 
 function App() {
   const cartas = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];

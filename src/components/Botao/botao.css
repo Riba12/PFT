@@ -1,8 +1,9 @@
 .botao{
-    background-color: lightblue;
+    background-color: rgb(241, 50, 50);
     margin: 2%;
     width: 75px;
     border-radius: 16px;
     border-color: black;
     padding: 1%;
+    color: white;
 }

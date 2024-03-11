@@ -1,12 +1,15 @@
 .bckg{
   text-align: center;
-  background-color: darkgreen;
   color: white;
   height: 100dvh;
   display: flex;
   flex-direction: column-reverse;
 }
-
 .holecards{
   margin: 5%;
+}
+.mesa img{
+  height: 60px;
+  width: 60px;
+  border-radius: 8px;
 }
