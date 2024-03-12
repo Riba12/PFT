@@ -9,6 +9,7 @@ function App() {
   const cartas = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
   const naipes = ["c", "d", "s", "h"];
   const posicoes = ["EP", "EP1", "MP", "LJ", "HJ", "CO", "BT", "SB"]
+  const [listaAcertos, setListaAcertos] = useState([]);
   const [mao, setMao] = useState([]);
   const [testemao, setTestemao] = useState([]);
   const [posicaoAtual, setPosicaoAtual] = useState();
@@ -68,14 +69,20 @@ function App() {
     for (let i = 0; i < cartasCertas.length; i++) {
       if (carta1 + carta2 === cartasCertas[i] || carta2 + carta1 === cartasCertas[i]) {
         console.log("certo");
+        aumentarLista("c");
         chooseHand();
         return;
       }
     }
-  
-    // If no match is found after the loop, handle it here
+
+    aumentarLista("e");
     console.log("errado");
     chooseHand();
+    return;
+  }
+
+  function aumentarLista(novo){
+    setListaAcertos((prevListaAcertos) => [...prevListaAcertos, novo])
   }
   
 
@@ -88,9 +95,17 @@ function App() {
         <Botao nome="2.5 BB" chooseHand={chooseHand} />
         <Botao nome="All in" chooseHand={chooseHand} />
       </div>
+      <div className='acima_botao'>
+        <div>
+          {listaAcertos}
+        </div>
       <div className='div_pos'>
         Posição: {posicaoAtual}<br />
         Stack: {stack} BBs {mao}
+      </div>
+      <div>
+        streak
+      </div>
       </div>
       <section className='fundo'>
 

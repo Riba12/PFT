@@ -79,3 +79,7 @@ body {
   height: 55px;
   width: 40px;
 }
+.acima_botao{
+  display: flex;
+  justify-content: space-around;
+}
