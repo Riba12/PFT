@@ -88,7 +88,8 @@ function Cartas(props) {
     
     return (
         <div className='cartas'>
-            <div className='cartasVilao'>
+        {/* mudar depois essas cartas pra app */}
+            <div className='cartasVilao'> 
             <img src={props.deckBack}/>
             <img src={props.deckBack}/>
             </div>

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Madimi+One&display=swap');
 body {
   background-color: rgb(26, 22, 22);
+  display: flex;
+  justify-content: center;
 }
 
 .bckg {
