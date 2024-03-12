@@ -35,16 +35,15 @@ function App() {
       naipe2 = Math.floor(Math.random() * 4);
     }
 
-    // let hand = [cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2]];
-    let hand = [cartas[carta1], "s", cartas[carta2], "s"];
+    let hand = [cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2]];
+    //let hand = [cartas[carta1], "s", cartas[carta2], "s"];
     setMao(hand);
     console.log(cartas[carta1] + cartas[carta2]);
-    setTestemao([carta1, carta2]);
+    setTestemao([carta1, carta2,naipes[naipe1],naipes[naipe2]]);
     // setPosicaoAtual(posicoes[pos])
     setPosicaoAtual("EP");
-    // Score(posicaoAtual,cartas[carta1], "s", cartas[carta2], "s",30);
   }
-  // colocar uma acao em paramertos da funcao
+  // colocar uma acao em parametros da funcao
   function Score(pos, carta1, naipe1, carta2, naipe2, stack) {
     console.log(pos, carta1, naipe1, carta2, naipe2, stack)
     switch (pos) {
@@ -53,28 +52,37 @@ function App() {
           if (naipe1 == naipe2) {
             let cartasCertas = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
               "K9", "KT", "KJ", "KQ", "Q9", "QT", "QJ", "J9", "JT", "T8", "T9", "98", "87", "76", "65", "54"]
-            for (let i = 0; i <= cartasCertas.length; i++) {
-              if (carta1 + carta2 == cartasCertas[i]) {
-                console.log("certo")
-                return;
-              }
-              else if (carta2 + carta1 == cartasCertas[i]) {
-                console.log("certo")
-                return
-              }          
-            }
-            console.log("errado")
-            break;
+          procurar(cartasCertas,carta1,carta2);     
+          }
+          else{
+            let cartasCertas = ["22","33","44","55","66","77","88","99","TT","JJ","QQ","KK","AA",
+          "AT","AJ","AQ","AK","KQ"]
+          procurar(cartasCertas,carta1,carta2);
           }
         }
     }
+    
+  }
+
+  function procurar(cartasCertas, carta1, carta2) {
+    for (let i = 0; i < cartasCertas.length; i++) {
+      if (carta1 + carta2 === cartasCertas[i] || carta2 + carta1 === cartasCertas[i]) {
+        console.log("certo");
+        chooseHand();
+        return;
+      }
+    }
+  
+    // If no match is found after the loop, handle it here
+    console.log("errado");
     chooseHand();
   }
+  
 
   return (
     <><section className="bckg">
       <div className='container_botoes'>
-        <Botao nome="Fold" score={() => Score(posicaoAtual, cartas[testemao[0]], "s", cartas[testemao[1]], "s", 30)} />
+        <Botao nome="Fold" score={() => Score(posicaoAtual, cartas[testemao[0]], testemao[2], cartas[testemao[1]], testemao[3], stack)} />
         <Botao nome="2 BB" chooseHand={chooseHand} />
         <Botao nome="2.3 BB" chooseHand={chooseHand} />
         <Botao nome="2.5 BB" chooseHand={chooseHand} />
