@@ -49,49 +49,52 @@ function App() {
     <><section className="bckg">
       <div className='container_botoes'>
         <Botao nome="Fold" chooseHand={chooseHand} />
-        <Botao nome="2bb" chooseHand={chooseHand} />
-        <Botao nome="2.3bb" chooseHand={chooseHand} />
-        <Botao nome="2.5bb" chooseHand={chooseHand} />
+        <Botao nome="2 BB" chooseHand={chooseHand} />
+        <Botao nome="2.3 BB" chooseHand={chooseHand} />
+        <Botao nome="2.5 BB" chooseHand={chooseHand} />
         <Botao nome="All in" chooseHand={chooseHand} />
       </div>
-      <div>
+      <div className='div_pos'>
         Posição: {posicaoAtual}
       </div>
-      <div className='div_stack'>
-        Stack: {stack} BBs
-      </div>
-      <div>
-        <div className='holecards'>
-          <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
+        <div className='div_stack'>
+          Stack: {stack} BBs
         </div>
-      </div>
-      <div className='middleCards'>
-        <div>
-          <img src={deckBack} />
-          <img src={deckBack} />
+      <section className='fundo'>
+
+        <div className='bottomCards'>
+          <div className='holecards'>
+            <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
+          </div>
         </div>
-        <div>
-          <img src={deckBack} />
-          <img src={deckBack} />
+        <div className='middleCards'>
+          <div>
+            <img src={deckBack} />
+            <img src={deckBack} />
+          </div>
+          <div>
+            <img src={deckBack} />
+            <img src={deckBack} />
+          </div>
         </div>
-      </div>
-      <div className='topcards'>
-        <div>
-          <img src={deckBack} />
-          <img src={deckBack} />
+        <div className='topcards'>
+          <div>
+            <img src={deckBack} />
+            <img src={deckBack} />
+          </div>
+          <div>
+            Pot :
+          </div>
+          <div>
+            <img src={deckBack} />
+            <img src={deckBack} />
+          </div>
         </div>
-        <div>
-          Pot :
-        </div>
-        <div>
-          <img src={deckBack} />
-          <img src={deckBack} />
-        </div>
-      </div>
         <div className='top'>
           <img src={deckBack} />
           <img src={deckBack} />
         </div>
+      </section>
     </section></>
   );
 }

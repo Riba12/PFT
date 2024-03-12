@@ -1,21 +1,16 @@
-.cartas{
+.cartas {
   display: flex;
   justify-content: space-around;
 }
 
-.cartas img{
-    width: 100px;
-    height: 110px;
+.cartas img {
+  width: 100px;
+  height: 110px;
 }
-.cartasVilao img{ 
-    width: 85px;
-    height: 85px;
+.cartasVilao{
+  margin-bottom: 100px;
 }
-.herocards img {
-  
-}
-
-.carta2 {
-  left: 44%; 
-  z-index: 1; 
+.cartasVilao img {
+  height: 55px;
+  width: 40px;
 }

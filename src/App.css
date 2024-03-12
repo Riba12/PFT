@@ -1,45 +1,79 @@
-
-body{
-background-color: rgb(26, 22, 22);
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Madimi+One&display=swap');
+body {
+  background-color: rgb(26, 22, 22);
 }
-.bckg{
+
+.bckg {
   text-align: center;
   color: white;
   height: 100dvh;
   display: flex;
   flex-direction: column-reverse;
+  min-width: 1280px;
+  min-height: 1024px;
+  max-width: 1280px;
+  max-height: 1024px;
+  font-family: "Agbalumo", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fundo {
+  display: flex;
+  flex-direction: column-reverse;
   background-image: url("./assets/indiv/table/mesaps.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 75%;
+  background-size: 110%;
+  height: 600px;
 }
-.holecards{
-  margin: 4%;
+
+.holecards {
+  margin: 2%;
 }
-.container_botoes{
+
+.container_botoes {
   padding-bottom: 2%;
 }
-.div_stack{
+
+.div_stack {
   padding-bottom: 3%;
+  font-size: 32px;
 }
-.middleCards{
+.div_pos{
+  font-size: 32px;
+}
+.bottomCards{
+  /* margin-top: 5%; */
+}
+.herocads{
+
+}
+.middleCards {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  margin: 0px 50px 75px 50px;
 }
-.middleCards img{
-  height: 85px;
-  width: 80px;
+
+.middleCards img {
+  height: 55px;
+  width: 40px;
 }
-.topcards{
+
+.topcards {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 6%;
+  margin-bottom: 100px;
 }
-.topcards img{
-  height: 85px;
-  width: 80px;
+
+.topcards img {
+  height: 55px;
+  width: 40px;
 }
-.top img{
-  height: 85px;
-  width: 80px;
+.top{
+  margin-bottom: 30px;
+}
+.top img {
+  height: 55px;
+  width: 40px;
 }
