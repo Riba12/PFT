@@ -2,7 +2,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Botao from './components/Botao';
 import Cartas from './components/Cartas';
-import mesa from './assets/indiv/table/mesaps.png'
 import deckBack from './assets/indiv/deck/back.png'
 
 function App() {
@@ -52,27 +51,22 @@ function App() {
     // console.log(pos, carta1, naipe1, carta2, naipe2, stack,mao)
     switch (pos) {
       case "EP":
+      case "EP1":
         if (stack > 20) {
           if (naipe1 == naipe2) {
             let cartasCertas = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
               "K9", "KT", "KJ", "KQ", "Q9", "QT", "QJ", "J9", "JT", "T8", "T9", "98", "87", "76", "65", "54"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2,3") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
           else {
@@ -80,44 +74,33 @@ function App() {
               "AT", "AJ", "AQ", "AK", "KQ"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2,3") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
-        } else if (stack <= 20 && stack > 15) {
+        }
+        else if (stack <= 20 && stack > 16) {
           if (naipe1 == naipe2) {
             let cartasCertas = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
               "K8", "K9", "KT", "KJ", "KQ", "Q8", "Q9", "QT", "QJ", "JT", "J9", "T9"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
           else {
@@ -125,44 +108,33 @@ function App() {
               "AT", "AJ", "AQ", "AK", "KQ", "KJ"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
-        } else if (stack <= 15 && stack > 12) {
+        }
+        else if (stack <= 16 && stack > 13) {
           if (naipe1 == naipe2) {
             let cartasCertas = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
               "K8", "K9", "KT", "KJ", "KQ", "Q8", "Q9", "QT", "QJ", "JT", "J9", "T9"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
           else {
@@ -170,24 +142,19 @@ function App() {
               "AT", "AJ", "AQ", "AK", "KQ", "KJ"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
-        } else if (stack <= 12 && stack > 10) {
+        }
+        else if (stack <= 13 && stack > 10) {
           if (naipe1 == naipe2) {
             let cartasCertasRaise = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
               "K8", "K9", "Q8", "Q9", "J9", "T9"]
@@ -195,27 +162,19 @@ function App() {
             let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else if (achou2 && acao == "AI") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
           else {
@@ -224,91 +183,279 @@ function App() {
             let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else if (achou2 && acao == "AI") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
-        } else if (stack <= 10) {
+        }
+        else if (stack <= 10) {
           if (naipe1 == naipe2) {
             let cartasCertasRaise = ["K9", "Q9", "J9"]
             let cartasCertasJam = ["A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK", "KT", "QT", "JT", "QJ", "KJ", "KQ", "T9"]
             let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else if (achou2 && acao == "AI") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
           else {
-            let cartasCertasRaise = [ "QQ", "KK", "AA", "KJ"]
-            let cartasCertasJam = ["AT", "AJ", "AQ", "AK", "KQ", "55", "66", "77", "88", "99", "TT","JJ"]
+            let cartasCertasRaise = ["QQ", "KK", "AA", "KJ"]
+            let cartasCertasJam = ["AT", "AJ", "AQ", "AK", "KQ", "55", "66", "77", "88", "99", "TT", "JJ"]
             let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             } else if (achou2 && acao == "AI") {
-              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
-              chooseHand();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado");
-              chooseHand();
             }
           }
         }
-
+      case "MP":
+      case "MP1":
+      case "LJ":
+      case "HJ":
+        if (stack > 20) {
+          if (naipe1 == naipe2) {
+            let cartasCertas = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
+              "K9", "KT", "KJ", "KQ", "Q9", "QT", "QJ", "J9", "JT", "T8", "T9", "98", "87", "76", "65", "54",
+              "86", "97", "T7", "J8", "Q8", "K4", "K5", "K6", "K7", "K8"]
+            let achou = procurar(cartasCertas, carta1, carta2, mao);
+            if (!achou && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2,3") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+          else {
+            let cartasCertas = ["22", "33", "44", "55", "66", "77", "88", "99", "TT", "JJ", "QQ", "KK", "AA",
+              "AT", "AJ", "AQ", "AK", "KQ", "KJ", "KT", "QJ", "QT", "JT"]
+            let achou = procurar(cartasCertas, carta1, carta2, mao);
+            if (!achou && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2,3") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+        }
+        else if (stack <= 20 && stack > 16) {
+          if (naipe1 == naipe2) {
+            let cartasCertas = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
+              "K8", "K9", "KT", "KJ", "KQ", "Q8", "Q9", "QT", "QJ", "JT", "J9", "T9",
+              "K7", "K6", "Q7", "J8", "T8"]
+            let achou = procurar(cartasCertas, carta1, carta2, mao);
+            if (!achou && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+          else {
+            let cartasCertas = ["22", "33", "44", "55", "66", "77", "88", "99", "TT", "JJ", "QQ", "KK", "AA",
+              "AT", "AJ", "AQ", "AK", "KQ", "KJ", "KT", "QJ"]
+            let achou = procurar(cartasCertas, carta1, carta2, mao);
+            if (!achou && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+        }
+        else if (stack <= 16 && stack > 13) {
+          if (naipe1 == naipe2) {
+            let cartasCertasRaise = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
+              "K8", "K9", "Q8", "Q9", "J9", "T9", "K7", "K6", "K5", "Q7", "Q6", "J8", "T8", "98"]
+            let cartasCertasJam = ["KT", "QT", "JT", "QJ", "KJ", "KQ"]
+            let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
+            let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
+            if (!achou && !achou2 && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else if (achou2 && acao == "AI") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+          else {
+            let cartasCertasRaise = ["A8", "A9", "AT", "AJ", "AQ", "AK",
+              "KJ", "KT", "QJ", "QT", "JT"]
+            let cartasCertasJam = ["55", "66", "77", "88", "KQ"]
+            let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
+            let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
+            if (!achou && !achou2 && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else if (achou2 && acao == "AI") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+        }
+        else if (stack <= 13 && stack > 10) {
+          if (naipe1 == naipe2) {
+            let cartasCertasRaise = ["AT", "AJ", "AQ", "AK", "K8", "K7", "K6", "K5", "Q8", "Q7", "J8", "T8"]
+            let cartasCertasJam = ["KT", "QT", "JT", "QJ", "KJ", "KQ", "K9", "Q9", "J9", "T9", "A2", "A3",
+              "A4", "A5", "A6", "A7", "A8", "A9"]
+            let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
+            let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
+            if (!achou && !achou2 && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else if (achou2 && acao == "AI") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+          else {
+            let cartasCertasRaise = ["JJ", "QQ", "KK", "AA", "KT", "QT", "QJ", "JT"]
+            let cartasCertasJam = ["A8", "A9", "AT", "AJ", "AQ", "AK", "KQ", "KJ", "22", "33", "44", "55", "66", "77", "88", "99", "TT"]
+            let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
+            let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
+            if (!achou && !achou2 && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else if (achou2 && acao == "AI") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+        }
+        else if (stack <= 10) {
+          if (naipe1 == naipe2) {
+            let cartasCertasRaise = ["K8", "Q8", "J8", "K7", "K6"]
+            let cartasCertasJam = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
+              "KT", "QT", "JT", "QJ", "KJ", "KQ", "T9", "K9", "Q9", "J9"]
+            let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
+            let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
+            if (!achou && !achou2 && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else if (achou2 && acao == "AI") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+          else {
+            let cartasCertasRaise = ["QQ", "KK", "AA", "KT"]
+            let cartasCertasJam = ["A8","A9","AT", "AJ", "AQ", "AK", "KQ","KJ",
+            "22","33","44", "55", "66", "77", "88", "99", "TT", "JJ"]
+            let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
+            let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
+            if (!achou && !achou2 && acao == "FOLD") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else if (achou && acao == "2") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            } else if (achou2 && acao == "AI") {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              setStreak(streak + 1);
+            }
+            else {
+              aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              setStreak(0);
+            }
+          }
+        }
     }
+    chooseHand();
   }
   function procurar(cartasCertas, carta1, carta2) {
     for (let i = 0; i < cartasCertas.length; i++) {
@@ -340,7 +487,7 @@ function App() {
         </div>
         <div className='div_pos'>
           Posição: {posicaoAtual}<br />
-          Stack: {stack} BBs {mao}
+          Stack: {stack} BBs
         </div>
         <div className='streak'>
           Consecutivos:<br />
