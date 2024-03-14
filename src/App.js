@@ -58,20 +58,20 @@ function App() {
               "K9", "KT", "KJ", "KQ", "Q9", "QT", "QJ", "J9", "JT", "T8", "T9", "98", "87", "76", "65", "54"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2,3") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -80,20 +80,20 @@ function App() {
               "AT", "AJ", "AQ", "AK", "KQ"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2,3") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -103,20 +103,20 @@ function App() {
               "K8", "K9", "KT", "KJ", "KQ", "Q8", "Q9", "QT", "QJ", "JT", "J9", "T9"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -125,20 +125,20 @@ function App() {
               "AT", "AJ", "AQ", "AK", "KQ", "KJ"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -148,20 +148,20 @@ function App() {
               "K8", "K9", "KT", "KJ", "KQ", "Q8", "Q9", "QT", "QJ", "JT", "J9", "T9"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -170,20 +170,20 @@ function App() {
               "AT", "AJ", "AQ", "AK", "KQ", "KJ"]
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -195,18 +195,18 @@ function App() {
             let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else if (achou2 && acao == "AI") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
@@ -214,7 +214,7 @@ function App() {
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -224,18 +224,18 @@ function App() {
             let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else if (achou2 && acao == "AI") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
@@ -243,7 +243,7 @@ function App() {
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -254,18 +254,18 @@ function App() {
             let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else if (achou2 && acao == "AI") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
@@ -273,7 +273,7 @@ function App() {
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -283,18 +283,18 @@ function App() {
             let achou = procurar(cartasCertasRaise, carta1, carta2, mao);
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             }
             else if (achou && acao == "2") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
             } else if (achou2 && acao == "AI") {
-              console.log("certo", mao[0]);
+              console.log("certo");
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               setStreak(streak + 1);
               chooseHand();
@@ -302,7 +302,7 @@ function App() {
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               setStreak(0);
-              console.log("errado", mao[0]);
+              console.log("errado");
               chooseHand();
             }
           }
@@ -336,7 +336,7 @@ function App() {
       </div>
       <div className='acima_botao'>
         <div>
-          {listaAcertos}
+          {/* {listaAcertos} */}
         </div>
         <div className='div_pos'>
           Posição: {posicaoAtual}<br />
