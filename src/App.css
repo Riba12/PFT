@@ -45,11 +45,8 @@ body {
 .div_pos{
   font-size: 32px;
 }
-.bottomCards{
-  /* margin-top: 5%; */
-}
-.herocads{
-
+.streak{
+  font-size: 24px;
 }
 .middleCards {
   display: flex;

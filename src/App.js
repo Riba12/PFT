@@ -14,6 +14,7 @@ function App() {
   const [testemao, setTestemao] = useState([]);
   const [posicaoAtual, setPosicaoAtual] = useState();
   const [stack, setStack] = useState();
+  const [streak,setStreak] = useState(0);
 
   useEffect(() => {
     chooseHand();
@@ -43,40 +44,46 @@ function App() {
     setTestemao([carta1, carta2,naipes[naipe1],naipes[naipe2]]);
     // setPosicaoAtual(posicoes[pos])
     setPosicaoAtual("EP");
+
   }
   // colocar uma acao em parametros da funcao
-  function Score(pos, carta1, naipe1, carta2, naipe2, stack) {
-    console.log(pos, carta1, naipe1, carta2, naipe2, stack)
+  function Score(pos, carta1, naipe1, carta2, naipe2, stack, mao) {
+    // console.log(pos, carta1, naipe1, carta2, naipe2, stack,mao)
     switch (pos) {
       case "EP":
         if (stack >= 20) {
           if (naipe1 == naipe2) {
             let cartasCertas = ["A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AT", "AJ", "AQ", "AK",
               "K9", "KT", "KJ", "KQ", "Q9", "QT", "QJ", "J9", "JT", "T8", "T9", "98", "87", "76", "65", "54"]
-          procurar(cartasCertas,carta1,carta2);     
+          procurar(cartasCertas,carta1,carta2,mao);     
           }
           else{
             let cartasCertas = ["22","33","44","55","66","77","88","99","TT","JJ","QQ","KK","AA",
           "AT","AJ","AQ","AK","KQ"]
-          procurar(cartasCertas,carta1,carta2);
+          procurar(cartasCertas,carta1,carta2,mao);
           }
+        } else{
+          console.log("shallow");
+          chooseHand();
         }
     }
     
   }
 
-  function procurar(cartasCertas, carta1, carta2) {
+  function procurar(cartasCertas, carta1, carta2, mao) {
     for (let i = 0; i < cartasCertas.length; i++) {
       if (carta1 + carta2 === cartasCertas[i] || carta2 + carta1 === cartasCertas[i]) {
-        console.log("certo");
-        aumentarLista("c");
+        console.log("certo", mao[0]);
+        aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+        setStreak(streak + 1);
         chooseHand();
         return;
       }
     }
 
-    aumentarLista("e");
-    console.log("errado");
+    aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+    setStreak(0);
+    console.log("errado", mao[0]);
     chooseHand();
     return;
   }
@@ -89,7 +96,8 @@ function App() {
   return (
     <><section className="bckg">
       <div className='container_botoes'>
-        <Botao nome="Fold" score={() => Score(posicaoAtual, cartas[testemao[0]], testemao[2], cartas[testemao[1]], testemao[3], stack)} />
+        <Botao nome="Fold" 
+        score={() => Score(posicaoAtual, cartas[testemao[0]], testemao[2], cartas[testemao[1]], testemao[3], stack, mao)} />
         <Botao nome="2 BB" chooseHand={chooseHand} />
         <Botao nome="2.3 BB" chooseHand={chooseHand} />
         <Botao nome="2.5 BB" chooseHand={chooseHand} />
@@ -103,8 +111,9 @@ function App() {
         Posição: {posicaoAtual}<br />
         Stack: {stack} BBs {mao}
       </div>
-      <div>
-        streak
+      <div className='streak'>
+      Consecutivos:<br/>
+        {streak}
       </div>
       </div>
       <section className='fundo'>
