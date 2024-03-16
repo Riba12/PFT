@@ -20,6 +20,12 @@ function App() {
   const [streak, setStreak] = useState(0);
   const barralista = useRef(null);
 
+  // colocar bt
+  // mudar fonte stack e posicao
+  // colocar num acertos, num erros e maior streak 
+  // talvez mudar cartas ? 
+  // mudar bkcg
+
   useEffect(() => {
     chooseHand();
   }, []);
