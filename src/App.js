@@ -26,7 +26,7 @@ function App() {
     let carta1 = Math.floor(Math.random() * 13);
     let naipe2 = Math.floor(Math.random() * 4);
     let carta2 = Math.floor(Math.random() * 13);
-    // 7 pq ta sem SB ainda 
+    // 7 pq ta sem SB ainda
     let pos = Math.floor(Math.random() * 7);
     let stack = 0
     while (stack < 8) {
@@ -40,7 +40,7 @@ function App() {
 
     let hand = [cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2]];
     setMao(hand);
-    console.log(cartas[carta1] + cartas[carta2]);
+    console.log(cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2] + " "+stack+" "+posicaoAtual);
     setTestemao([carta1, carta2, naipes[naipe1], naipes[naipe2]]);
     setPosicaoAtual(posicoes[pos])
 
@@ -48,7 +48,7 @@ function App() {
   }
 
   function Score(pos, carta1, naipe1, carta2, naipe2, stack, mao, acao) {
-    // console.log(pos, carta1, naipe1, carta2, naipe2, stack,mao)
+    console.log(acao)
     switch (pos) {
       case "EP":
       case "EP1":
@@ -243,6 +243,7 @@ function App() {
             }
           }
         }
+        break;
       case "MP":
       case "MP1":
       case "LJ":
@@ -454,6 +455,7 @@ function App() {
             }
           }
         }
+        break;
       case "CO":
         if (stack > 20) {
           if (naipe1 == naipe2) {
@@ -670,6 +672,7 @@ function App() {
             }
           }
         }
+        break;
       case "BT":
         if (stack > 20) {
           if (naipe1 == naipe2) {
@@ -896,6 +899,7 @@ function App() {
             }
           }
         }
+        break;
     }
     chooseHand();
   }
@@ -925,7 +929,7 @@ function App() {
       </div>
       <div className='acima_botao'>
         <div>
-          {/* {listaAcertos} */}
+          {listaAcertos} 
         </div>
         <div className='div_pos'>
           Posição: {posicaoAtual}<br />
