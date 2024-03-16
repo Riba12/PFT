@@ -7,7 +7,8 @@ import deckBack from './assets/indiv/deck/back.png'
 function App() {
   const cartas = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
   const naipes = ["c", "d", "s", "h"];
-  const posicoes = ["EP", "EP1", "MP", "LJ", "HJ", "CO", "BT", "SB"]
+  // add Sb depois
+  const posicoes = ["EP", "EP1", "MP", "LJ", "HJ", "CO", "BT"]
   const [listaAcertos, setListaAcertos] = useState([]);
   const [mao, setMao] = useState([]);
   const [testemao, setTestemao] = useState([]);
@@ -25,10 +26,10 @@ function App() {
     let carta1 = Math.floor(Math.random() * 13);
     let naipe2 = Math.floor(Math.random() * 4);
     let carta2 = Math.floor(Math.random() * 13);
-    let pos = Math.floor(Math.random() * 8);
+    // 7 pq ta sem SB ainda 
+    let pos = Math.floor(Math.random() * 7);
     let stack = 0
-    //mudar de novo pra 8 
-    while (stack < 16) {
+    while (stack < 8) {
       stack = Math.floor(Math.random() * 40);
     }
     setStack(stack);
@@ -38,12 +39,11 @@ function App() {
     }
 
     let hand = [cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2]];
-    //let hand = [cartas[carta1], "s", cartas[carta2], "s"];
     setMao(hand);
     console.log(cartas[carta1] + cartas[carta2]);
     setTestemao([carta1, carta2, naipes[naipe1], naipes[naipe2]]);
-    // setPosicaoAtual(posicoes[pos])
-    setPosicaoAtual("EP");
+    setPosicaoAtual(posicoes[pos])
+
 
   }
 
