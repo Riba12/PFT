@@ -80,3 +80,28 @@ body {
   display: flex;
   justify-content: space-around;
 }
+.cointeinerListas{
+  overflow-x: auto;
+  width: 250px;
+  height: 95px;
+}
+.cointeinerListas img{
+  width: 50px;
+  height: 50px;
+}
+
+.listaIMG{
+  display: flex;
+  align-items: flex-start;
+  /* width: 250px;
+  height: 95px;
+  overflow-x: auto; */
+  white-space: nowrap;
+}
+.caixaLista{
+  /* width: 250px;
+  height: 95px;
+  overflow-x: auto; */
+  white-space: nowrap;
+  display: flex;
+}

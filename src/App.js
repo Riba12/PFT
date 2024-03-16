@@ -1,8 +1,10 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Botao from './components/Botao';
 import Cartas from './components/Cartas';
-import deckBack from './assets/indiv/deck/back.png'
+import deckBack from './assets/indiv/deck/back.png';
+import certo from './assets/v.png';
+import errado from './assets/x.png';
 
 function App() {
   const cartas = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
@@ -11,14 +13,22 @@ function App() {
   const posicoes = ["EP", "EP1", "MP", "LJ", "HJ", "CO", "BT"]
   const [listaAcertos, setListaAcertos] = useState([]);
   const [mao, setMao] = useState([]);
+  const [listaAcertosIMG, setListaAcertosIMG] = useState([]);
   const [testemao, setTestemao] = useState([]);
   const [posicaoAtual, setPosicaoAtual] = useState();
   const [stack, setStack] = useState();
   const [streak, setStreak] = useState(0);
+  const barralista = useRef(null);
 
   useEffect(() => {
     chooseHand();
   }, []);
+
+  useEffect(() => {
+    if(barralista.current){
+      barralista.current.scrollLeft = barralista.current.scrollWidth;
+    }
+  },[listaAcertos] )
 
   function chooseHand() {
 
@@ -40,7 +50,7 @@ function App() {
 
     let hand = [cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2]];
     setMao(hand);
-    console.log(cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2] + " "+stack+" "+posicaoAtual);
+    console.log(cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2] + " " + stack + " " + posicaoAtual);
     setTestemao([carta1, carta2, naipes[naipe1], naipes[naipe2]]);
     setPosicaoAtual(posicoes[pos])
 
@@ -59,13 +69,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -75,13 +88,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -93,13 +109,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -109,13 +128,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -127,13 +149,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -143,13 +168,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -163,17 +191,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -184,17 +216,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -207,17 +243,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -228,17 +268,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -256,13 +300,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -272,13 +319,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -291,13 +341,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -307,13 +360,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -327,17 +383,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -349,17 +409,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -373,17 +437,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -394,17 +462,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -418,17 +490,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -440,17 +516,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -466,13 +546,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -483,13 +566,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -504,13 +590,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -521,13 +610,16 @@ function App() {
             let achou = procurar(cartasCertas, carta1, carta2, mao);
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -542,17 +634,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -564,17 +660,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -589,17 +689,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -611,17 +715,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -635,17 +743,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -657,17 +769,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -678,10 +794,12 @@ function App() {
           if (naipe1 == naipe2) {
             if (acao == "2,5") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -691,13 +809,16 @@ function App() {
             let achou = procurar(cartasErradas, carta1, carta2, mao);
             if (!achou && acao == "2,5") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -710,18 +831,22 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (!achou && !achou2 && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -734,18 +859,22 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (!achou && !achou2 && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -759,18 +888,22 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (!achou && !achou2 && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -784,18 +917,22 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (!achou && !achou2 && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -810,18 +947,22 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (!achou && !achou2 && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -835,18 +976,22 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (!achou && !achou2 && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -862,17 +1007,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -884,17 +1033,21 @@ function App() {
             let achou2 = procurar(cartasCertasJam, carta1, carta2, mao);
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
+              aumentarListaIMG(certo);
               setStreak(streak + 1);
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
+              aumentarListaIMG(errado);
               setStreak(0);
             }
           }
@@ -915,6 +1068,9 @@ function App() {
   function aumentarLista(novo) {
     setListaAcertos((prevListaAcertos) => [...prevListaAcertos, novo])
   }
+  function aumentarListaIMG(novo) {
+    setListaAcertosIMG((prevListaAcertos) => [...prevListaAcertos, novo])
+  }
 
 
   return (
@@ -928,8 +1084,15 @@ function App() {
         <Botao nome="All in" score={() => Score(posicaoAtual, cartas[testemao[0]], testemao[2], cartas[testemao[1]], testemao[3], stack, mao, "AI")} />
       </div>
       <div className='acima_botao'>
-        <div>
-          {listaAcertos} 
+        <div className='cointeinerListas' ref={barralista}>
+          <div className='caixaLista'>
+            {listaAcertos}
+          </div>
+          <div className='listaIMG'>
+            {listaAcertosIMG.map((imgSrc, index) => (
+              <img key={index} src={imgSrc} alt={`Image ${index}`} />
+            ))}
+          </div>
         </div>
         <div className='div_pos'>
           Posição: {posicaoAtual}<br />
