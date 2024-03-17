@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import Botao from './components/Botao';
 import Cartas from './components/Cartas';
+import Mesa from './components/Mesa/mesa';
 import deckBack from './assets/indiv/deck/back.png';
 import certo from './assets/v.png';
 import errado from './assets/x.png';
@@ -1079,7 +1080,7 @@ function App() {
 
 
   return (
-    <><section className="bckg">
+    <section className="bckg">
       <div className='container_botoes'>
         <Botao nome="Fold"
           score={() => Score(posicaoAtual, cartas[testemao[0]], testemao[2], cartas[testemao[1]], testemao[3], stack, mao, "FOLD")} />
@@ -1109,11 +1110,10 @@ function App() {
         </div>
       </div>
       <section className='fundo'>
-        <div className='bottomCards'>
-          <div className='holecards'>
-            <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
-          </div>
-        </div>
+        <Mesa />
+        
+          <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
+ 
         <div className='secondCards'>
           <div>
             <img src={deckBack} />
@@ -1152,7 +1152,7 @@ function App() {
           <img src={deckBack} />
         </div>
       </section>
-    </section></>
+    </section>
   );
 }
 

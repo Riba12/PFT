@@ -1,18 +1,11 @@
 .cartas {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .cartas img {
-  height: 110px;
-  width: 100px;
-}
-.cartasVilao{
-  margin-bottom: 100px;
-}
-.cartasVilao img {
-  height: 55px;
-  width: 40px;
+  height: 100px;
+  width: 90px;
 }
 @media (max-height: 780px){
   .cartas img {

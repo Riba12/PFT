@@ -87,13 +87,9 @@ function Cartas(props) {
 
     
     return (
-        <div className='cartas'>
-
-            <div className='heroCards'>
+        <div className='cartas'>           
                 <img src={hole[0]} className='carta1' />
                 <img src={hole[1]} className='carta2' />
-            </div>
- 
         </div>
     );
 }
