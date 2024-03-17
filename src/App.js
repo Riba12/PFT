@@ -31,10 +31,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if(barralista.current){
+    if (barralista.current) {
       barralista.current.scrollLeft = barralista.current.scrollWidth;
     }
-  },[listaAcertos] )
+  }, [listaAcertos])
 
   function chooseHand() {
 
@@ -59,7 +59,6 @@ function App() {
     console.log(cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2] + " " + stack + " " + posicaoAtual);
     setTestemao([carta1, carta2, naipes[naipe1], naipes[naipe2]]);
     setPosicaoAtual(posicoes[pos])
-
 
   }
 
@@ -1110,10 +1109,19 @@ function App() {
         </div>
       </div>
       <section className='fundo'>
-
         <div className='bottomCards'>
           <div className='holecards'>
             <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
+          </div>
+        </div>
+        <div className='secondCards'>
+          <div>
+            <img src={deckBack} />
+            <img src={deckBack} />
+          </div>
+          <div>
+            <img src={deckBack} />
+            <img src={deckBack} />
           </div>
         </div>
         <div className='middleCards'>

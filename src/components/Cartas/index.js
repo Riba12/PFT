@@ -88,19 +88,12 @@ function Cartas(props) {
     
     return (
         <div className='cartas'>
-        {/* mudar depois essas cartas pra app */}
-            <div className='cartasVilao'> 
-            <img src={props.deckBack}/>
-            <img src={props.deckBack}/>
-            </div>
+
             <div className='heroCards'>
                 <img src={hole[0]} className='carta1' />
                 <img src={hole[1]} className='carta2' />
             </div>
-            <div className='cartasVilao'>
-            <img src={props.deckBack} />
-            <img src={props.deckBack} />
-            </div>
+ 
         </div>
     );
 }

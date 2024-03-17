@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Madimi+One&display=swap');
+
 body {
   background-color: rgb(26, 22, 22);
   display: flex;
@@ -9,12 +10,13 @@ body {
   text-align: center;
   color: white;
   height: 100dvh;
+  width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  min-width: 1280px;
-  min-height: 1024px;
+  /* min-width: 1280px;
+  min-height: 855px;
   max-width: 1280px;
-  max-height: 1024px;
+  max-height: 855px; */
   font-family: "Agbalumo", system-ui;
   font-weight: 400;
   font-style: normal;
@@ -26,7 +28,7 @@ body {
   background-image: url("./assets/indiv/table/mesaps.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 110%;
+  background-size: 110% 400px;
   height: 600px;
 }
 
@@ -42,19 +44,30 @@ body {
   padding-bottom: 3%;
   font-size: 32px;
 }
-.div_pos{
+
+.div_pos {
   font-size: 32px;
 }
-.streak{
+
+.streak {
   font-size: 24px;
 }
+
+.secondCards {
+  display: flex;
+  justify-content: space-around;
+}
+
 .middleCards {
   display: flex;
   justify-content: space-between;
   margin: 0px 50px 75px 50px;
 }
 
-.middleCards img {
+.secondCards img,
+.middleCards img,
+.topcards img,
+.top img {
   height: 55px;
   width: 40px;
 }
@@ -65,43 +78,67 @@ body {
   margin-bottom: 100px;
 }
 
-.topcards img {
-  height: 55px;
-  width: 40px;
-}
-.top{
+.top {
   margin-bottom: 30px;
 }
-.top img {
-  height: 55px;
-  width: 40px;
-}
-.acima_botao{
+
+.acima_botao {
   display: flex;
   justify-content: space-around;
 }
-.cointeinerListas{
+
+.cointeinerListas {
   overflow-x: auto;
   width: 250px;
   height: 95px;
 }
-.cointeinerListas img{
+
+.cointeinerListas img {
   width: 50px;
   height: 50px;
 }
 
-.listaIMG{
+.listaIMG {
   display: flex;
   align-items: flex-start;
-  /* width: 250px;
-  height: 95px;
-  overflow-x: auto; */
   white-space: nowrap;
 }
-.caixaLista{
-  /* width: 250px;
-  height: 95px;
-  overflow-x: auto; */
+
+.caixaLista {
   white-space: nowrap;
   display: flex;
+}
+
+@media (max-height: 780px) {
+  body {
+    width: 1366px;
+    height: 766px;
+  }
+  .bckg{
+    width: 100%;
+  }
+
+  .secondCards img,
+  .middleCards img,
+  .topcards img,
+  .top img {
+    height: 40px;
+    width: 35px;
+  }
+  .cartas{
+    margin: 0;
+    margin-bottom: 10%;
+  }
+  .middleCards,
+  .topcards{
+    margin: 0;
+    margin-bottom: 5%;
+  }
+  .div_pos {
+    font-size: 16px;
+  }
+  
+  .streak {
+    font-size: 12px;
+  }
 }
