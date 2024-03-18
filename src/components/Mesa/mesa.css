@@ -23,6 +23,7 @@
     height: 100%;
     background-color: #173828;
     border-radius: 50%;
+    color: white;
   }
   @media (max-width: 780px){
     .table-background{

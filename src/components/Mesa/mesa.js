@@ -9,6 +9,7 @@ const Mesa = () => {
                 {/* Table surface */}
                 <div className="table-surface">
                     {/* Table elements (e.g., cards, chips, etc.) can be added here */}
+                    
                 </div>
             </div>
         </div>

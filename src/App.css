@@ -89,14 +89,17 @@ body {
 }
 
 .cointeinerListas img {
-  width: 50px;
+  width: 65px;
   height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .listaIMG {
   display: flex;
   align-items: flex-start;
   white-space: nowrap;
+  width: 100%;
 }
 
 .caixaLista {
