@@ -1110,7 +1110,7 @@ function App() {
         </div>
       </div>
       <section className='fundo'>
-        <Mesa />
+        <Mesa posicaoAtual={posicaoAtual}/>
         
           <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
  

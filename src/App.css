@@ -25,6 +25,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
+  height: 40dvh;
 }
 
 .holecards {
@@ -54,7 +55,8 @@ body {
 .secondCards {
   display: flex;
   justify-content: space-between;
-  margin: 0 10%;
+  margin: 0 20%;
+  margin-bottom: -2%;
 }
 
 .middleCards {

@@ -1,32 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .table-background {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color:#171615c4; /* Green color for the table background */
-    z-index: -1; /* Ensure the background appears behind other content */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #171615c4;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-border {
+  width: 90%;
+  height: 80%;
+  border: 10px solid rgb(9, 9, 9);
+  border-radius: 50%;
+}
+
+.table-surface {
+  width: 100%;
+  height: 100%;
+  background-color: #173828;
+  border-radius: 50%;
+  color: white;
+}
+
+.meio_mesa {
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 56px;
+  font-style: normal;
+  opacity: 50%;
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  left: 32%;
+}
+
+@media (max-width: 780px) {
+  .table-background {
+    margin-bottom: 20%;
   }
-  
-  .table-border {
-    width: 90%;
-    height: 80%;
-    border: 10px solid rgb(9, 9, 9); /* Brown color for the table border */
-    border-radius: 50%;
-  }
-  
-  .table-surface {
-    width: 100%;
-    height: 100%;
-    background-color: #173828;
-    border-radius: 50%;
-    color: white;
-  }
-  @media (max-width: 780px){
-    .table-background{
-        margin-bottom: 20%;
-    }
-  }
+}
