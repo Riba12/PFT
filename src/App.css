@@ -82,6 +82,7 @@ body {
 .acima_botao {
   display: flex;
   justify-content: space-between;
+  margin-top: 5%;
 }
 
 .cointeinerListas {
