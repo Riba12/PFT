@@ -19,6 +19,9 @@ function App() {
   const [posicaoAtual, setPosicaoAtual] = useState();
   const [stack, setStack] = useState();
   const [streak, setStreak] = useState(0);
+  const [erros, setErros] = useState(0);
+  const [acertos, setAcertos] = useState(0);
+  const [saldo, setSaldo] = useState(0);
   const barralista = useRef(null);
 
   // colocar bt
@@ -76,16 +79,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -95,16 +98,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -116,16 +119,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -135,16 +138,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -156,16 +159,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -175,16 +178,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -198,21 +201,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -223,21 +226,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -250,21 +253,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -275,21 +278,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -307,16 +310,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -326,16 +329,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -348,16 +351,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -367,16 +370,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -390,21 +393,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -416,21 +419,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -444,21 +447,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -469,21 +472,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -497,21 +500,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -523,21 +526,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -553,16 +556,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -573,16 +576,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -597,16 +600,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -617,16 +620,16 @@ function App() {
             if (!achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -641,21 +644,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -667,21 +670,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -696,21 +699,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -722,21 +725,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -750,21 +753,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -776,21 +779,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -801,12 +804,12 @@ function App() {
             if (acao == "2,5") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -816,16 +819,16 @@ function App() {
             if (!achou && acao == "2,5") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -838,22 +841,22 @@ function App() {
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (!achou && !achou2 && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -866,22 +869,22 @@ function App() {
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (!achou && !achou2 && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -895,22 +898,22 @@ function App() {
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (!achou && !achou2 && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -924,22 +927,22 @@ function App() {
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (!achou && !achou2 && acao == "2,3") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -954,22 +957,22 @@ function App() {
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (!achou && !achou2 && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -983,22 +986,22 @@ function App() {
             if (achou && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (!achou && !achou2 && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -1014,21 +1017,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
           else {
@@ -1040,21 +1043,21 @@ function App() {
             if (!achou && !achou2 && acao == "FOLD") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else if (achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             } else if (achou2 && acao == "AI") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
-              setStreak(streak + 1);
+              acertou();
             }
             else {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " E ");
               aumentarListaIMG(errado);
-              setStreak(0);
+              errou();
             }
           }
         }
@@ -1077,7 +1080,16 @@ function App() {
   function aumentarListaIMG(novo) {
     setListaAcertosIMG((prevListaAcertos) => [...prevListaAcertos, novo])
   }
-
+  function acertou() {
+    setAcertos(acertos + 1);
+    setSaldo(saldo + 1);
+    setStreak(streak + 1);
+  }
+  function errou() {
+    setErros(erros + 1);
+    setSaldo(saldo - 1);
+    setStreak(0);
+  }
 
   return (
     <section className="bckg">
@@ -1106,14 +1118,16 @@ function App() {
         </div>
         <div className='streak'>
           Consecutivos:<br />
-          {streak}
+          {streak}<br />
+          E / C / S<br />
+          {erros} / {acertos} / {saldo}
         </div>
       </div>
       <section className='fundo'>
-        <Mesa posicaoAtual={posicaoAtual}/>
-        
-          <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
- 
+        <Mesa posicaoAtual={posicaoAtual} />
+
+        <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
+
         <div className='secondCards'>
           <div>
             <img src={deckBack} />
