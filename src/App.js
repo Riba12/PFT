@@ -22,13 +22,9 @@ function App() {
   const [erros, setErros] = useState(0);
   const [acertos, setAcertos] = useState(0);
   const [saldo, setSaldo] = useState(0);
+  const [animacao,setAnimacao] = useState(true);
   const barralista = useRef(null);
 
-  // colocar bt
-  // mudar fonte stack e posicao
-  // colocar num acertos, num erros e maior streak 
-  // talvez mudar cartas ? 
-  // mudar bkcg
 
   useEffect(() => {
     chooseHand();
@@ -41,7 +37,7 @@ function App() {
   }, [listaAcertos])
 
   function chooseHand() {
-
+    
     let naipe1 = Math.floor(Math.random() * 4);
     let carta1 = Math.floor(Math.random() * 13);
     let naipe2 = Math.floor(Math.random() * 4);
@@ -63,6 +59,11 @@ function App() {
     console.log(cartas[carta1], naipes[naipe1], cartas[carta2], naipes[naipe2] + " " + stack + " " + posicaoAtual);
     setTestemao([carta1, carta2, naipes[naipe1], naipes[naipe2]]);
     setPosicaoAtual(posicoes[pos])
+    setAnimacao(true);
+    
+    setTimeout(()=>{
+      setAnimacao(false);
+    },200)
 
   }
 
@@ -1126,7 +1127,7 @@ function App() {
       <section className='fundo'>
         <Mesa posicaoAtual={posicaoAtual} />
 
-        <Cartas mao={mao} testemao={testemao} deckBack={deckBack} />
+        <Cartas mao={mao} testemao={testemao} deckBack={deckBack} animacao={animacao}/>
 
         <div className='secondCards'>
           <div>

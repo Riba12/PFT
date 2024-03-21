@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './cartas.css';
-
+import deckBack from '../../assets/indiv/deck/back.png';
 
 
 function Cartas(props) {
@@ -15,8 +15,7 @@ function Cartas(props) {
         return r.keys().map(r);
     }
 
-    
-    useEffect(() =>{
+    useEffect(() => {
         switch (props.mao[1]) {
             case 'c':
                 switch (props.mao[3]) {
@@ -83,13 +82,13 @@ function Cartas(props) {
                 }
                 break;
         }
-    },[props.mao])
+    }, [props.mao])
 
-    
+
     return (
-        <div className='cartas'>           
-                <img src={hole[0]} className='carta1' />
-                <img src={hole[1]} className='carta2' />
+        <div className='cartas'>
+            <img src={props.animacao ? deckBack : hole[0]} className='carta1' />
+            <img src={props.animacao ? deckBack : hole[1]} className='carta2' />
         </div>
     );
 }
