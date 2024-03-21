@@ -11,7 +11,7 @@ function App() {
   const cartas = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
   const naipes = ["c", "d", "s", "h"];
   // add Sb depois
-  const posicoes = ["EP", "EP1", "MP", "LJ", "HJ", "CO", "BT"]
+  const posicoes = ["EP", "EP1", "MP", "HJ", "CO", "BT"]
   const [listaAcertos, setListaAcertos] = useState([]);
   const [mao, setMao] = useState([]);
   const [listaAcertosIMG, setListaAcertosIMG] = useState([]);
@@ -43,8 +43,8 @@ function App() {
     let carta1 = Math.floor(Math.random() * 13);
     let naipe2 = Math.floor(Math.random() * 4);
     let carta2 = Math.floor(Math.random() * 13);
-    // 7 pq ta sem SB ainda
-    let pos = Math.floor(Math.random() * 7);
+    // 6 pq ta sem SB ainda
+    let pos = Math.floor(Math.random() * 6);
     let stack = 0
     while (stack < 8) {
       stack = Math.floor(Math.random() * 40);
@@ -1140,7 +1140,7 @@ function App() {
             <img src={deckBack} />
           </div>
           <div>
-            Pot :
+            Pot : 2,5bb
           </div>
           <div>
             <img src={deckBack} />
