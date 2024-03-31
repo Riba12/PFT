@@ -22,7 +22,7 @@ function App() {
   const [erros, setErros] = useState(0);
   const [acertos, setAcertos] = useState(0);
   const [saldo, setSaldo] = useState(0);
-  const [animacao,setAnimacao] = useState(true);
+  const [animacao, setAnimacao] = useState(true);
   const barralista = useRef(null);
 
 
@@ -37,7 +37,7 @@ function App() {
   }, [listaAcertos])
 
   function chooseHand() {
-    
+
     let naipe1 = Math.floor(Math.random() * 4);
     let carta1 = Math.floor(Math.random() * 13);
     let naipe2 = Math.floor(Math.random() * 4);
@@ -60,10 +60,10 @@ function App() {
     setTestemao([carta1, carta2, naipes[naipe1], naipes[naipe2]]);
     setPosicaoAtual(posicoes[pos])
     setAnimacao(true);
-    
-    setTimeout(()=>{
+
+    setTimeout(() => {
       setAnimacao(false);
-    },200)
+    }, 200)
 
   }
 
@@ -82,7 +82,7 @@ function App() {
               aumentarListaIMG(certo);
               acertou();
             }
-            else if (achou && acao == "2,3") {
+            else if (achou && acao == "2,3" || achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
               acertou();
@@ -101,7 +101,7 @@ function App() {
               aumentarListaIMG(certo);
               acertou();
             }
-            else if (achou && acao == "2,3") {
+            else if (achou && acao == "2,3" || achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
               acertou();
@@ -313,7 +313,7 @@ function App() {
               aumentarListaIMG(certo);
               acertou();
             }
-            else if (achou && acao == "2,3") {
+            else if (achou && acao == "2,3" || achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
               acertou();
@@ -332,7 +332,7 @@ function App() {
               aumentarListaIMG(certo);
               acertou();
             }
-            else if (achou && acao == "2,3") {
+            else if (achou && acao == "2,3" || achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
               acertou();
@@ -559,7 +559,7 @@ function App() {
               aumentarListaIMG(certo);
               acertou();
             }
-            else if (achou && acao == "2,3") {
+            else if (achou && acao == "2,3" || achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
               acertou();
@@ -579,7 +579,7 @@ function App() {
               aumentarListaIMG(certo);
               acertou();
             }
-            else if (achou && acao == "2,3") {
+            else if (achou && acao == "2,3" || achou && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
               acertou();
@@ -844,7 +844,7 @@ function App() {
               aumentarListaIMG(certo);
               acertou();
             }
-            else if (!achou && !achou2 && acao == "2,3") {
+            else if (!achou && !achou2 && acao == "2,3" || !achou && !achou2 && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
               acertou();
@@ -872,7 +872,7 @@ function App() {
               aumentarListaIMG(certo);
               acertou();
             }
-            else if (!achou && !achou2 && acao == "2,3") {
+            else if (!achou && !achou2 && acao == "2,3" || !achou && !achou2 && acao == "2") {
               aumentarLista(mao[0] + mao[1] + mao[2] + mao[3] + " C ");
               aumentarListaIMG(certo);
               acertou();
@@ -1127,7 +1127,7 @@ function App() {
       <section className='fundo'>
         <Mesa posicaoAtual={posicaoAtual} />
 
-        <Cartas mao={mao} testemao={testemao} deckBack={deckBack} animacao={animacao}/>
+        <Cartas mao={mao} testemao={testemao} deckBack={deckBack} animacao={animacao} />
 
         <div className='secondCards'>
           <div>
