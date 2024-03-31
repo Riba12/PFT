@@ -1115,7 +1115,7 @@ function App() {
         </div>
         <div className='div_pos'>
           Posição: {posicaoAtual}<br />
-          Stack: {stack} BBs
+          Stack: {stack} BB
         </div>
         <div className='streak'>
           Consecutivos:<br />
